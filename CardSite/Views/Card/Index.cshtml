@@ -1,0 +1,22 @@
+﻿@model Hand
+@{
+    ViewData["Title"] = "Card Getter";
+}
+
+<h1>Cards</h1>
+
+<div class="card-container">
+    @foreach (Card c in Model.cards)
+    {
+        <div class="card-item text-center">
+            @c.value of @c.suit <br />
+            <img src="@c.image" width="120" />
+        </div>
+    }
+</div>
+<br />
+<div class="text-center">
+    <a class="cool-button" asp-action="Index" asp-controller="Card" asp-route-deck_id="@Model.deck_id">Draw Again</a>
+    <br /><br />
+    @ViewData["Message"]
+</div>
